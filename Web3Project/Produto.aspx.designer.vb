@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class Produto
-    
+
     '''<summary>
     '''grid control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class Produto
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents grid As Global.System.Web.UI.HtmlControls.HtmlForm
-    
+
     '''<summary>
     '''txtMensagem control.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class Produto
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtMensagem As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''txtNomeProduto control.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class Produto
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtNomeProduto As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''cboCategoria control.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class Produto
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents cboCategoria As Global.System.Web.UI.WebControls.DropDownList
-    
+
     '''<summary>
     '''txtPreco control.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class Produto
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPreco As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''txtEstoque control.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class Produto
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtEstoque As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''chkFaraDeLinha control.
     '''</summary>
@@ -75,7 +75,7 @@ Partial Public Class Produto
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents chkFaraDeLinha As Global.System.Web.UI.WebControls.CheckBox
-    
+
     '''<summary>
     '''Button1 control.
     '''</summary>
@@ -84,7 +84,7 @@ Partial Public Class Produto
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''Button2 control.
     '''</summary>
@@ -93,7 +93,7 @@ Partial Public Class Produto
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Button2 As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''Button3 control.
     '''</summary>
@@ -102,7 +102,25 @@ Partial Public Class Produto
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Button3 As Global.System.Web.UI.WebControls.Button
-    
+
+    '''<summary>
+    '''btnSalvar control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnSalvar As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Button5 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Button5 As Global.System.Web.UI.WebControls.Button
+
     '''<summary>
     '''txtPesquisar control.
     '''</summary>
@@ -111,7 +129,7 @@ Partial Public Class Produto
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPesquisar As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''btnPesquisar control.
     '''</summary>
@@ -120,7 +138,7 @@ Partial Public Class Produto
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnPesquisar As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''grdProdutos control.
     '''</summary>
@@ -129,7 +147,7 @@ Partial Public Class Produto
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents grdProdutos As Global.System.Web.UI.WebControls.GridView
-    
+
     '''<summary>
     '''txtPesquisarCategoria control.
     '''</summary>
@@ -138,7 +156,7 @@ Partial Public Class Produto
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPesquisarCategoria As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''btnBuscarCategoria control.
     '''</summary>
@@ -147,7 +165,7 @@ Partial Public Class Produto
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnBuscarCategoria As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''grdCategoria control.
     '''</summary>

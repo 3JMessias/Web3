@@ -70,11 +70,17 @@
             <asp:Button ID="Button2" runat="server" Text="Button" />
 &nbsp;&nbsp;&nbsp;
             <asp:Button ID="Button3" runat="server" Text="Button" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnSalvar" runat="server" Text="Salvar" />
+&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Button5" runat="server" Text="Button" />
         
         </div>
             <hr />
         <div>
             Digite as iniciais do nome do Produto:<asp:TextBox ID="txtPesquisar" runat="server" Width="261px"></asp:TextBox>
+
+            &nbsp;&nbsp;&nbsp;
 
             <asp:Button ID="btnPesquisar" runat="server" Height="24px" Text="Pesquisar" Width="90px" />
 
@@ -108,6 +114,7 @@
             Buscar por nome da Categoria: 
 
             <asp:TextBox ID="txtPesquisarCategoria" runat="server" AutoCompleteType="FirstName" Height="19px" Width="242px"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnBuscarCategoria" runat="server" Text="Buscar" Width="90px" />
 
         </div>

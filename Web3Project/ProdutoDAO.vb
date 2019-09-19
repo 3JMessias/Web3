@@ -3,13 +3,29 @@
 Public Class ProdutoDAO
     Implements iDAO
 
-    Public Function Adiciona(Obj As Table) As String Implements iDAO.Adiciona
-        'Dim cn As New Conexao
-        'Dim sql As String
-        'sql = "INSERT INTO Produtos(nomeProduto,preco)" &
-        '    "VALUES('" & Obj.NomeProduto & "','" &
-        '            Obj.Preco & "')"
-        'Return cn.ExecutaSqlNew(sql)
+    Public Function Adiciona(Obj As ProdutoTO) As String
+        Dim sql As New StringBuilder
+        sql.Append("insert into Produtos")
+        sql.Append("(")
+        sql.Append("NomeProduto,")
+        sql.Append("idCategoria,")
+        sql.Append("Preco,")
+        sql.Append("Estoque,")
+        sql.Append("ForaDeLinha")
+        sql.Append(")")
+        sql.Append("values")
+        sql.Append("(")
+        sql.Append("'" & Obj.NomeProduto & "',")
+        sql.Append(Obj.idCategoria & ",")
+        sql.Append(Obj.Preco & ",")
+        sql.Append(Obj.Estoque & ",")
+        sql.Append(IIf(Obj.ForaDeLinha, 1, 0))
+        sql.Append(")")
+        Dim cn As New Conexao
+        Return cn.ExecutaSqlNew(sql.ToString)
+    End Function
+
+    Public Function Adiciona(ByRef categorias As CategoriasTO) As String Implements iDAO.Adiciona
         Throw New NotImplementedException()
     End Function
 
@@ -39,6 +55,10 @@ Public Class ProdutoDAO
     End Function
 
     Public Function PreencheCombo() As DataSet Implements iDAO.PreencheCombo
+        Throw New NotImplementedException()
+    End Function
+
+    Private Function iDAO_Adiciona(Obj As ProdutoTO) As String Implements iDAO.Adiciona
         Throw New NotImplementedException()
     End Function
 End Class

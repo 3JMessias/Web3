@@ -13,7 +13,7 @@ Public Class CategoriasDAO
 
     End Function
 
-    Public Function Adiciona(Obj As Table) As String Implements iDAO.Adiciona
+    Public Function Adiciona(Obj As ProdutoTO) As String Implements iDAO.Adiciona
         Throw New NotImplementedException()
     End Function
 
@@ -42,7 +42,17 @@ Public Class CategoriasDAO
         Throw New NotImplementedException()
     End Function
 
-    Public Function PreencheCombo() As DataSet Implements iDAO.PreencheCombo
+    Function PreencheCombo() As DataSet Implements iDAO.PreencheCombo
+        Dim cn As New Conexao
+        Dim sql As String
+        sql = "select -1 as idCategoria, '--Selecione--' as nomeCategoria " &
+              "union all " &
+              "select idcategoria, nomecategoria " &
+              "from Categorias"
+        Return cn.ExecutaSqlRetorno(sql)
+    End Function
+
+    Private Function iDAO_Adiciona(ByRef categorias As CategoriasTO) As String Implements iDAO.Adiciona
         Throw New NotImplementedException()
     End Function
 End Class
