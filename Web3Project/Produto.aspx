@@ -4,95 +4,116 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <style type="text/css">
+        .auto-style1 {
+            height: 23px;
+        }
+        .auto-style2 {
+            width: 173px;
+        }
+        .auto-style3 {
+            height: 23px;
+            width: 173px;
+        }
         .auto-style4 {
-            width: 39%;
+            width: 209px;
         }
         .auto-style5 {
-            width: 169px;
-        }
-        .auto-style6 {
-            width: 102px;
+            height: 23px;
+            width: 209px;
         }
     </style>
+
+    <script type=" text/javascript">
+        function ConfirmaExclusao() {
+        return confirm("Registro selecionado na grid será excluido!");
+        }
+    </script>
+
 </head>
 <body>
-    <form id="grid" runat="server">
+    <form id="form1" runat="server">
         <div>
 
-            <asp:TextBox ID="txtMensagem" runat="server" BackColor="#FFFF99" Font-Bold="True" Font-Size="Medium" ForeColor="Red" Height="44px" TextMode="MultiLine" Width="100%"></asp:TextBox>
+            <asp:TextBox ID="txtMensagem" runat="server" BackColor="#FFFF99" Font-Bold="True" Font-Size="Medium" Font-Strikeout="False" ForeColor="Red" Height="44px" TextMode="MultiLine" Visible="False" Width="100%"></asp:TextBox>
 
         </div>
-            <hr />
+        <hr />
         <div>
 
-            <table class="auto-style4">
+            <table style="width:100%;">
                 <tr>
-                    <td class="auto-style5">Nome do Produto</td>
-                    <td class="auto-style6">
-                        <asp:TextBox ID="txtNomeProduto" runat="server" Width="187px"></asp:TextBox>
+                    <td class="auto-style2">Nome do Produto</td>
+                    <td class="auto-style4">
+                        <asp:TextBox ID="txtNomeProduto" runat="server" Width="194px"></asp:TextBox>
                     </td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style5">Categoria</td>
-                    <td class="auto-style6">
-                        <asp:DropDownList ID="cboCategoria" runat="server" DataTextField="NomeCategoria" DataValueField="idCategoria" Height="20px" Width="195px">
+                    <td class="auto-style2">Categoria</td>
+                    <td class="auto-style4">
+                        <asp:DropDownList ID="cboCategoria" runat="server" DataTextField="NomeCategoria" DataValueField="idCategoria" Width="201px">
                         </asp:DropDownList>
                     </td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style5">Preço Unitário</td>
-                    <td class="auto-style6">
-                        <asp:TextBox ID="txtPreco" runat="server" Width="187px"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style5">Qtd. em Estoque</td>
-                    <td class="auto-style6">
-                        <asp:TextBox ID="txtEstoque" runat="server" Width="187px"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
+                    <td class="auto-style3">Preço Unitario</td>
                     <td class="auto-style5">
-                        <asp:CheckBox ID="chkFaraDeLinha" runat="server" Text="Produto Descontinuado" />
+                        <asp:TextBox ID="txtPreco" runat="server" Width="195px"></asp:TextBox>
                     </td>
-                    <td class="auto-style6">&nbsp;</td>
+                    <td class="auto-style1"></td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Qtd. em Estoque</td>
+                    <td class="auto-style4">
+                        <asp:TextBox ID="txtEstoque" runat="server" Width="190px"></asp:TextBox>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">
+                        <asp:CheckBox ID="chkForaDeLinha" runat="server" Text="Produto descontinuado" />
+                    </td>
+                    <td class="auto-style4">&nbsp;</td>
+                    <td>&nbsp;</td>
                 </tr>
             </table>
 
         </div>
-            <hr />
+        <hr />
         <div>
-        
-            <asp:Button ID="Button1" runat="server" Text="Button" />
-&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button2" runat="server" Text="Button" />
-&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button3" runat="server" Text="Button" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <asp:Button ID="btnNovo" runat="server" Text="Novo" />
+&nbsp;
+            <asp:Button ID="btnEditar" runat="server" Text="Editar" />
+&nbsp;
+            <asp:Button ID="btnExcluir" runat="server" Text="Excluir" OnClientClick =" return ConfirmaExclusao()" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnSalvar" runat="server" Text="Salvar" />
-&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button5" runat="server" Text="Button" />
-        
+&nbsp;&nbsp;
+            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" />
+
         </div>
-            <hr />
+        <hr />
         <div>
-            Digite as iniciais do nome do Produto:<asp:TextBox ID="txtPesquisar" runat="server" Width="261px"></asp:TextBox>
 
-            &nbsp;&nbsp;&nbsp;
-
-            <asp:Button ID="btnPesquisar" runat="server" Height="24px" Text="Pesquisar" Width="90px" />
+            Digite as iniciais do nome do produto:<asp:TextBox ID="txtPesquisar" runat="server"></asp:TextBox>
+            <asp:Button ID="btnPesquisar" runat="server" Text="Pesquisar" />
 
         </div>
-            <hr />
-        <div id="grdProdutos">
-            <asp:GridView ID="grdProdutos" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Width="626px">
+        <hr />
+        <div>
+
+            <asp:GridView ID="grdProdutos" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="idProduto" HeaderText="Cód." />
                     <asp:BoundField DataField="NomeProduto" HeaderText="Nome do Produto" />
                     <asp:BoundField DataField="Preco" HeaderText="Preço Unit." />
+                    <asp:CommandField ShowSelectButton="True" />
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -105,41 +126,8 @@
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
-        </div>
-
-        <div>
-            <hr />
-        </div>
-        <div>
-            Buscar por nome da Categoria: 
-
-            <asp:TextBox ID="txtPesquisarCategoria" runat="server" AutoCompleteType="FirstName" Height="19px" Width="242px"></asp:TextBox>
-            &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnBuscarCategoria" runat="server" Text="Buscar" Width="90px" />
 
         </div>
-        <div>
-            <hr />
-        </div>
-        <div>
-            Grid
-        </div>
-        <asp:GridView ID="grdCategoria" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" Width="361px">
-            <AlternatingRowStyle BackColor="White" />
-            <Columns>
-                <asp:BoundField DataField="NomeCategoria" HeaderText="Nome" />
-                <asp:BoundField DataField="Descricao" HeaderText="Descrição" />
-            </Columns>
-            <FooterStyle BackColor="#CCCC99" />
-            <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
-            <RowStyle BackColor="#F7F7DE" />
-            <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#FBFBF2" />
-            <SortedAscendingHeaderStyle BackColor="#848384" />
-            <SortedDescendingCellStyle BackColor="#EAEAD3" />
-            <SortedDescendingHeaderStyle BackColor="#575357" />
-        </asp:GridView>
     </form>
 </body>
 </html>

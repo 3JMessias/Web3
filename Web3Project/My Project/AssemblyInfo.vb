@@ -2,11 +2,11 @@
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 
-' General Information about an assembly is controlled through the following 
-' set of attributes. Change these attribute values to modify the information
-' associated with an assembly.
+' As Informações Gerais sobre um assembly são controladas por meio do 
+' conjunto de atributos a seguir. Altere esses valores de atributo para modificar as informações
+' associadas a um assembly.
 
-' Review the values of the assembly attributes
+' Verificar os valores dos atributos do conjunto
 <Assembly: AssemblyTitle("Web3Project")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
@@ -16,18 +16,18 @@ Imports System.Runtime.InteropServices
 
 <Assembly: ComVisible(False)>
 
-'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("fe3d0ce5-e844-4b10-bb63-b3e71d65f5e3")>
+'A GUID a seguir será referente à ID do typelib se este projeto for exposto ao COM
+<Assembly: Guid("cc2beb8f-b62f-4125-ad4c-0e8ec7ac26ff")>
 
-' Version information for an assembly consists of the following four values:
+' As informações de versão de um assembly consistem nos quatro valores a seguir:
 '
 '      Major Version
 '      Minor Version 
 '      Build Number
 '      Revision
 '
-' You can specify all the values or you can default the Build and Revision Numbers 
-' by using the '*' as shown below:
+' É possível especificar todos os valores ou utilizar como padrão os Números da Versão e de Revisão 
+' usando o '*' como mostrado abaixo:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
 <Assembly: AssemblyVersion("1.0.0.0")>

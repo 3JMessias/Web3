@@ -7,38 +7,26 @@
 
     Protected Sub btnSalvar_Click(sender As Object, e As EventArgs) Handles btnSalvar.Click
         'Captura os dados do formulário
-        Dim categorias As New CategoriasTO
+        Dim categorias As New CategoriaTO
         categorias.NomeCategoria = txtNomeCategoria.Text
         categorias.Descricao = txtDescricao.Text
-
-
         'Enviar para o DAO
-        Dim dao As New CategoriasDAO
+        Dim dao As New CategoriaDAO
         Dim msg As String
         msg = dao.Adiciona(categorias)
-
-        'Validar campos vazios
-        If (Not String.IsNullOrEmpty(txtNomeCategoria.Text) Or Not String.IsNullOrEmpty(txtDescricao.Text)) Then
-            If msg = "OK" Then
-                txtMensagem.Visible = True
-                txtMensagem.Text = "Gravação com sucesso!"
-            Else
-                txtMensagem.Visible = True
-                txtMensagem.Text = msg
-            End If
+        If msg = "OK" Then
+            TextMsg.Visible = True
+            TextMsg.Text = "Gravação com sucesso!"
         Else
-            txtMensagem.Visible = True
-            txtMensagem.Text = "Verifique se existe campo vazios"
+            TextMsg.Visible = True
+            TextMsg.Text = msg
 
         End If
-
     End Sub
 
-
-    Protected Sub limparCampos(sender As Object, e As EventArgs) Handles btnLimpar.Click
-        txtNomeCategoria.Text = ""
-        txtDescricao.Text = ""
-        txtNomeCategoria.Focus()
-        txtMensagem.Visible = False
+    Protected Sub btnPesquisar_Click(sender As Object, e As EventArgs) Handles btnPesquisar.Click
+        Dim dao As New CategoriaDAO
+        GridCategoria.DataSource = dao.Lista(txtPesquisar.Text)
+        GridCategoria.DataBind()
     End Sub
 End Class
