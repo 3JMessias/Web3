@@ -156,6 +156,9 @@
 
         End If
         RefreshGrid()
+        LimpaDados()
+        HabilitaBotoes(False)
+        HabilitaTela(True)
 
     End Sub
 End Class
