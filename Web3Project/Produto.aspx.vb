@@ -1,7 +1,7 @@
 ﻿Public Class Produto
     Inherits System.Web.UI.Page
-    Shared novoProduto As Boolean = False
-
+    Shared novoProduto As Boolean
+    Shared idProduto As Long
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then 'Se for a primeira vez que carrega a pagina
@@ -76,22 +76,33 @@
 
     Protected Sub btnSalvar_Click(sender As Object, e As EventArgs) Handles btnSalvar.Click
         Dim produto As New ProdutoTO
-        produto.idProduto = grdProdutos.SelectedRow.Cells(0).Text
-        produto.NomeProduto = txtNomeProduto.Text
-        produto.idCategoria = cboCategoria.SelectedValue
-        produto.Preco = txtPreco.Text
-        produto.Estoque = txtEstoque.Text
-        produto.ForaDeLinha = chkForaDeLinha.Checked
+        'Preenche o objeto com os dados do formulário
+        With produto
+            .idProduto = idProduto
+            .NomeProduto = txtNomeProduto.Text
+            .idCategoria = cboCategoria.SelectedValue
+            .Preco = txtPreco.Text
+            .Estoque = txtEstoque.Text
+            .ForaDeLinha = chkForaDeLinha.Checked
+        End With
+        'Gravação do dados
         Dim msg As String
         Dim dao As New ProdutoDAO
-        If novoProduto = True Then
+
+        If (idProduto <= 0) Then
             msg = dao.Adiciona(produto)
         Else
             msg = dao.Altera(produto)
         End If
 
+        'Exibe mensagem de retorno da gravação
         If msg = "OK" Then
             ExibeMsg("Registro salvo com sucesso", "Blue", True)
+            'Disable botons
+            HabilitaBotoes(False)
+            'Disabilita Tela
+            HabilitaTela(False)
+
         Else
             ExibeMsg(msg, "Red", True)
             txtMensagem.Visible = True
@@ -122,10 +133,12 @@
     End Sub
 
     Protected Sub btnNovo_Click(sender As Object, e As EventArgs) Handles btnNovo.Click
+        ExibeMsg("", "", False)
         LimpaDados()
-        novoProduto = True
-        HabilitaTela(True)
         HabilitaBotoes(False)
+        HabilitaTela(True)
+        novoProduto = True
+        idProduto = -1 'sinaliza para o botão Salvar
     End Sub
 
     Protected Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click

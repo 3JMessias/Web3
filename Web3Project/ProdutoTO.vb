@@ -6,6 +6,4 @@
     Property Estoque As Integer
     Property ForaDeLinha As Boolean
 
-
-
 End Class
