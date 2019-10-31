@@ -89,7 +89,7 @@
         Dim msg As String
         Dim dao As New ProdutoDAO
 
-        If (idProduto <= 0) Then
+        If novoProduto Then
             msg = dao.Adiciona(produto)
         Else
             msg = dao.Altera(produto)
@@ -109,15 +109,14 @@
             txtMensagem.Text = msg
 
         End If
-        RefreshGrid()
         LimpaDados()
         HabilitaTela(True)
         HabilitaBotoes(True)
+        RefreshGrid()
 
     End Sub
 
     Protected Sub grdProdutos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles grdProdutos.SelectedIndexChanged
-        Dim idProduto As Integer
         idProduto = grdProdutos.SelectedRow.Cells(0).Text
         Dim produto As New ProdutoTO
         Dim dao As New ProdutoDAO
