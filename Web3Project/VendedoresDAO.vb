@@ -16,10 +16,16 @@ Public Class VendedoresDAO
         With Obj
             .IdVendedor = reg(0)
             .NomeVendedor = reg(1)
-            .Sexo = reg(2)
-            .Salario = reg(3)
-            .DataAdmissao = reg(4)
-            .DataDemissao = reg(5)
+            .DataAdmissao = reg(2)
+            .Sexo = reg(3)
+            .Salario = reg(4)
+            If reg(5) Is DBNull.Value Then
+                .DataDemissao = ""
+
+            Else
+                .DataDemissao = reg(5)
+
+            End If
         End With
     End Sub
 

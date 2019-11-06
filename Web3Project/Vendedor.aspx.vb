@@ -1,6 +1,7 @@
 ﻿Public Class Vendedor
     Inherits System.Web.UI.Page
     Shared novoVendedor As Boolean = False
+    Shared idVendedor As Long
 
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -70,12 +71,15 @@
 
     Protected Sub btnSalvarVendedor_Click(sender As Object, e As EventArgs) Handles btnSalvarVendedor.Click
         Dim vendedor As New VendedoresTO
-        vendedor.IdVendedor = grdVendedores.SelectedRow.Cells(0).Text
-        vendedor.NomeVendedor = txtNomeVendedor.Text
-        vendedor.Sexo = IIf(rdbMasculino.Checked = True, "M", "F")
-        vendedor.Salario = txtSalario.Text
-        vendedor.DataAdmissao = txtDataAdmissao.Text
-        vendedor.DataDemissao = txtDataDemissao.Text
+        'Preenche o objeto com os dados do formulário
+        With vendedor
+            .NomeVendedor = txtNomeVendedor.Text
+            .Sexo = IIf(rdbMasculino.Checked = True, "M", "F")
+            .Salario = txtSalario.Text
+            .DataAdmissao = txtDataAdmissao.Text
+            .DataDemissao = txtDataDemissao.Text
+        End With
+        'Gravação dos dados
         Dim msg As String
         Dim dao As New VendedoresDAO
         If novoVendedor = True Then
@@ -84,17 +88,28 @@
             msg = dao.Altera(vendedor)
         End If
         If msg <> "OK" Then
-
+            ExibeMsgVendedor("Registro salvo com sucesso", "Blue", True)
+            'Disable botons
+            HabilitaBotoesVendedor(False)
+            HabilitaTelaVendedor(False)
+        Else
+            ExibeMsgVendedor(msg, "Red", True)
             txtMensagemVendedor.Visible = True
             txtMensagemVendedor.Text = msg
         End If
+        LimpaDadosVendedor()
+        HabilitaTelaVendedor(True)
+        HabilitaBotoesVendedor(True)
+        RefreshGridVendedor()
     End Sub
 
     Protected Sub btnNovoVendedor_Click(sender As Object, e As EventArgs) Handles btnNovoVendedor.Click
+        ExibeMsgVendedor("", "", False)
         LimpaDadosVendedor()
         novoVendedor = True
         HabilitaTelaVendedor(True)
         HabilitaBotoesVendedor(False)
+        novoVendedor = True
     End Sub
 
     Protected Sub btnEditarVendedor_Click(sender As Object, e As EventArgs) Handles btnEditarVendedor.Click
@@ -129,10 +144,8 @@
     End Sub
 
     Protected Sub grdVendedores_SelectedIndexChanged1(sender As Object, e As EventArgs) Handles grdVendedores.SelectedIndexChanged
-        Dim idVendedor As Long
         idVendedor = grdVendedores.SelectedRow.Cells(0).Text
         Dim vendedor As New VendedoresTO
-
         Dim dao As New VendedoresDAO
         dao.PreencheObj(vendedor, idVendedor)
 
