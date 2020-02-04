@@ -5,7 +5,7 @@ Public Class VendedoresDAO
 
     Public Sub PreencheObj(ByRef Obj As VendedoresTO, id As Integer) Implements iDAO(Of VendedoresTO).PreencheObj
         Dim sql As String
-        sql = "select * from Vendedores where idVendedor = " & id
+        sql = "select * from Vendedores where Idvendedor = " & id
 
         Dim rs As New DataSet
         Dim reg As DataRow
@@ -54,7 +54,20 @@ Public Class VendedoresDAO
     End Function
 
     Public Function Altera(Obj As VendedoresTO) As String Implements iDAO(Of VendedoresTO).Altera
-        Throw New NotImplementedException()
+        Dim sql As New StringBuilder
+        With sql
+            .Append("update Vendedores set ")
+            .Append("NomeVendedor='" & Obj.NomeVendedor & "',")
+            .Append("DataAdmissao = " & Obj.DataAdmissao & ",")
+            .Append("Sexo = " & Obj.Sexo & ",")
+            .Append("Salario =" & Obj.Salario & ",")
+            .Append("DataDemissao =" & Obj.DataDemissao)
+            .Append(" where idVendedor = " & Obj.IdVendedor)
+
+        End With
+
+        Dim cn As New Conexao
+        Return cn.ExecutaSqlNew(sql.ToString)
     End Function
 
     Public Function Exclui(id As Integer) As String Implements iDAO(Of VendedoresTO).Exclui
